@@ -70,7 +70,8 @@
 
          ret = inflate(&strm, Z_NO_FLUSH);
          if (ret != Z_OK && ret != Z_STREAM_END) {
-            NSLog(@"inflat: ret != Z_OK %d", ret);
+            NSLog(@"inflate: ret != Z_OK %d", ret);
+            free(uncompressedData);
             inflateEnd(&strm);
             return nil;
          }
